@@ -9,6 +9,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@types/async": "^3.2.24",
     "async": "^3.2.6",
     "axios": "^1.7.5"
   }

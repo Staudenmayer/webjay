@@ -23,10 +23,6 @@ import {
     FilterCapability
 } from "./class";
 
-
-interface source {
-    enable(): void;
-}
 interface Globals {
     source: typeof source;
     Type: typeof Type;
@@ -45,6 +41,12 @@ interface Globals {
     log: (message: string) => void;
     bridge: typeof bridge;
     http: typeof http;
+}
+
+interface context extends Globals {
+    source: {
+        enable: () => void;
+    }
 }
 
 const globals = {
@@ -67,27 +69,28 @@ const globals = {
     http
 };
 
-function runVM(globals: Globals) {
-    const code = fs.readFileSync("./youtube/YoutubeScript.js", "utf-8");
-    const sandbox = globals;
+//function runVM(globals: Globals) {
+//    const code = fs.readFileSync("./youtube/YoutubeScript.js", "utf-8");
+//    const sandbox: context = globals as context;
+//
+//    // Add the vm context
+//    vm.createContext(sandbox); // Create the context for the sandbox
+//
+//    // Run the code in the sandbox
+//    vm.runInContext(code, sandbox);
+//    if(sandbox.source.enable instanceof Function) {
+//        sandbox.source.enable();
+//    }
+//}
 
-    // Add the vm context
-    vm.createContext(sandbox); // Create the context for the sandbox
-
-    // Run the code in the sandbox
-    vm.runInContext(code, sandbox);
-    console.log(source.enable());
-}
-
-function run(globals: Globals) {
+function runDbg(globals: Globals) {
     for(let key in globals) {
         global[key] = globals[key];
     }
     require("./youtube/YoutubeScript");
     source.enable();
-
 }
-//runVM(globals)
-//run(globals)
+//runVM(globals);
+//runDbg(globals);
 
 console.log(http.GET("https://google.com"))

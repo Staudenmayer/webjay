@@ -1,6 +1,4 @@
 //https://gitlab.futo.org/videostreaming/plugins/youtube.git
-import fs from "fs";
-import vm from "vm";
 import http from "./http";
 import bridge from "./bridge";
 import log from "./log";
@@ -69,28 +67,15 @@ const globals = {
     http
 };
 
-//function runVM(globals: Globals) {
-//    const code = fs.readFileSync("./youtube/YoutubeScript.js", "utf-8");
-//    const sandbox: context = globals as context;
-//
-//    // Add the vm context
-//    vm.createContext(sandbox); // Create the context for the sandbox
-//
-//    // Run the code in the sandbox
-//    vm.runInContext(code, sandbox);
-//    if(sandbox.source.enable instanceof Function) {
-//        sandbox.source.enable();
-//    }
-//}
-
 function runDbg(globals: Globals) {
     for(let key in globals) {
+        // @ts-ignore
         global[key] = globals[key];
     }
     require("./youtube/YoutubeScript");
+    // @ts-ignore
     source.enable();
 }
-//runVM(globals);
-//runDbg(globals);
+runDbg(globals);
 
 console.log(http.GET("https://google.com"))

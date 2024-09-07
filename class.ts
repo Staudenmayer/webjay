@@ -1,13 +1,11 @@
-module.exports = {
-    PlaybackTracker: class PlaybackTracker {},
-    VideoPager: class VideoPager {},
-    VideoUrlRangeSource: class VideoUrlRangeSource {},
-    AudioUrlRangeSource: class AudioUrlRangeSource {},
-    RequestModifier: class RequestModifier {},
-    LiveEventPager: class LiveEventPager {},
-    CommentPager: class CommentPager {},
-    Comment: class Comment {},
-    PlaylistPager: class PlaylistPager {},
-    ChannelPager: class ChannelPager {},
-    FilterCapability: class FilterCapability {}
-}
+export class PlaybackTracker {};
+export class VideoPager {};
+export class VideoUrlRangeSource {};
+export class AudioUrlRangeSource {};
+export class RequestModifier {};
+export class LiveEventPager {};
+export class CommentPager {};
+export class Comment {};
+export class PlaylistPager {};
+export class ChannelPager {};
+export class FilterCapability {};

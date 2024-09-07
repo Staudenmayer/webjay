@@ -75,4 +75,4 @@ class http {
     }
 }
 
-module.exports = new http();
+export default new http();

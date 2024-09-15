@@ -77,3 +77,14 @@ class http {
 }
 
 export default new http();
+
+/*
+newClient
+getDefaultClient
+batch
+request
+requestWithBody
+GET
+POST
+socket
+*/

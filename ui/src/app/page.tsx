@@ -7,8 +7,9 @@ let videos: Array<VideoCardProps> = [];
 for(let i = 0; i < 12; i++) {
   videos.push({
     thumbnail:"https://placehold.co/640x360",
-     title:"Lorem Ipsum dolor",
-     profileImg:"https://placehold.co/640x360"
+    title:"Lorem Ipsum dolor",
+    profileImg:"",
+    vid: "a"+i
   })
 }
 
@@ -29,7 +30,7 @@ export default function Home () {
                 {
                   videos.map((el, index) => {
                     return (
-                      <VideoCard key={index} thumbnail={ el.thumbnail } title={ el.title } profileImg={ el.profileImg }/>
+                      <VideoCard key={ el.vid } vid={ el.vid } thumbnail={ el.thumbnail } title={ el.title } profileImg={ el.profileImg }/>
                     )
                   })
                 }

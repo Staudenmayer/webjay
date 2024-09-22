@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { Button } from "../ui/button";
 import { CircleUserRound } from "lucide-react";
 import {
@@ -24,7 +22,7 @@ export function Profile() {
                 onClick={() => {}}
                 className="group relative flex h-12 w-12 justify-middle"
                 > 
-                    <Avatar>
+                    <Avatar className="h-6 w-6">
                         <AvatarImage src={session?.data?.user.image as string | undefined} />
                         <AvatarFallback>
                             <CircleUserRound className="absolute h-6 w-6"/> 
